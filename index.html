@@ -7,6 +7,17 @@
 <body>
   <h1>Onboarding Stripe completato!</h1>
   <p>Ora puoi tornare all'app per continuare.</p>
-  <button onclick="window.location.href='veridis://stripe'">Torna all'app</button>
+  <button onclick="openApp()">Torna all'app</button>
+
+<script>
+  function openApp() {
+    window.location.href = 'veridis://stripe';
+
+    // Se non parte, fallback dopo 2s
+    setTimeout(() => {
+      window.location.href = 'https://apps.apple.com/...'; // link App Store se non installata
+    }, 2000);
+  }
+</script>
 </body>
 </html>
